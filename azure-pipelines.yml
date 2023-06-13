@@ -23,12 +23,12 @@ steps:
     goals: 'package'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/surefire-reports/TEST-*.xml'
+    rootFolderOrFile: '$(Build.SourcesDirectory)/target/surefire-reports/TEST-*.xml'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 - task: Bash@3
   inputs:
-    filePath: 'upload.sh'
+    filePath: '$(Build.SourcesDirectory)/upload.sh'
     arguments: '$(URL) $(USER) $(PASS) $(TCID) $(TRID)'

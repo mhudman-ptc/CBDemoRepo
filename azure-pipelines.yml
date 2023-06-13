@@ -14,7 +14,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
+    mavenOptions: '-Xmx3072m -Dmaven.test.failure.ignore=true'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
@@ -36,8 +36,10 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+  condition: always()
 
 - task: Bash@3
   inputs:
     filePath: '$(Build.SourcesDirectory)/upload.sh'
     arguments: '$(URL) $(USER) $(PASS) $(TCID) $(TRID) $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+  condition: always()

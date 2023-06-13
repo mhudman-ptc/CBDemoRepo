@@ -28,3 +28,11 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+- task: cURLUploader@2
+  inputs:
+    files: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    authType: 'UserAndPass'
+    username: 'mhudman'
+    password: 'password'
+    url: 'https://PP-2303231529FG.portal.ptc.io'
+    remotePath: '/rest/xunitresults'

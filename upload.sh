@@ -8,6 +8,7 @@ PASS=$3
 # testRunTrackerId      - The tracker id where the test runs going to be populated
 TEST_CASE_TRACKER_ID=$4
 TEST_RUN_TRACKER_ID=$5
+FILE=$6
 
 # optional params
 # testConfigurationId   - Test configuration
@@ -22,10 +23,6 @@ BUILD_ID=""
 PACKAGE_PREFIX=""
 
 CFG="{\"testConfigurationId\":\"$TEST_CONFIG_ID\",\"testCaseTrackerId\":\"$TEST_CASE_TRACKER_ID\",\"testCaseId\":\"$PARENT_TEST_CASE_ID\",\"releaseId\":\"$RELEASE_ID\",\"testRunTrackerId\":\"$TEST_RUN_TRACKER_ID\",\"buildIdentifier\":\"$BUILD_ID\",\"defaultPackagePrefix\":\"$PACKAGE_PREFIX\"}"
-FILE="report.zip"
-
-rm -rf *.zip
-zip -j $FILE ./jenkins/reports/*.xml
 
 echo -e "\nConfig = $CFG"
 

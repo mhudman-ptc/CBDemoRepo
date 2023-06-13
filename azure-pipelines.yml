@@ -21,9 +21,14 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/target/surefire-reports'
+    Contents: '*.xml'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)/target/surefire-reports/TEST-*.xml'
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
@@ -31,4 +36,4 @@ steps:
 - task: Bash@3
   inputs:
     filePath: '$(Build.SourcesDirectory)/upload.sh'
-    arguments: '$(URL) $(USER) $(PASS) $(TCID) $(TRID)'
+    arguments: '$(URL) $(USER) $(PASS) $(TCID) $(TRID) $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

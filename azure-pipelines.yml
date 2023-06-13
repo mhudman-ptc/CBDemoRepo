@@ -20,14 +20,13 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    goals: 'clean package'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/target/surefire-reports'
     Contents: '*.xml'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  condition: always()
 
 - task: ArchiveFiles@2
   inputs:
@@ -36,10 +35,8 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
-  condition: always()
 
 - task: Bash@3
   inputs:
     filePath: '$(Build.SourcesDirectory)/upload.sh'
     arguments: '$(URL) $(USER) $(PASS) $(TCID) $(TRID) $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-  condition: always()

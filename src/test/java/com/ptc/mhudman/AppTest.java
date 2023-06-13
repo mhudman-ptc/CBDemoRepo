@@ -11,10 +11,15 @@ import org.junit.Test;
  */
 public class AppTest {
     /**
-     * Rigorous Test :-)
+     * Rigorous Tests :-)
      */
     @Test
-    public void shouldAnswerWithTrue() {
+    public void testThatShouldPass() {
         assertTrue(true);
+    }
+
+    @Test
+    public void testThatShouldFail() {
+        assertTrue(false);
     }
 }

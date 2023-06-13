@@ -28,7 +28,7 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/*.xml'
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

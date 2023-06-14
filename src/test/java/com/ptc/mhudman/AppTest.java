@@ -8,6 +8,7 @@ import org.junit.Test;
  * Unit test for simple App.
  * 
  * update for demo
+ * update this for demo
  */
 public class AppTest {
     /**

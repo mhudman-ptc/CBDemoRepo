@@ -7,13 +7,7 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  * 
- * update this for demo
- * update this for demo
- * update this for demo
- * update this for demo
- * update for #43334
  * update for demo #43334
- * #43334
  */
 public class AppTest {
     /**

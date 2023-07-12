@@ -9,4 +9,4 @@ The code is a simple "Hello World" Java application that can be built and
 tested with Maven. It demonstrates the ability to automate the process of
 uploading test results to CB.
 
-Update for task #1722/
+Update for task #1722/ 

@@ -10,3 +10,5 @@ tested with Maven. It demonstrates the ability to automate the process of
 uploading test results to CB.
 
 Update for task #1722/ 
+
+Another change for task #1722

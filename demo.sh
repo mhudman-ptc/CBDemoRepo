@@ -7,6 +7,7 @@ echo ${TASK_ID}
 echo ${NOW}
 echo ${EDITFILE}
 git checkout -b ${BRANCHNAME}
+git checkout ${BRANCHNAME}
 git pull
 echo -e "\n${NOW} - Added line to readme.md for ${TASK_ID}">> ${EDITFILE}
 cat ${EDITFILE}

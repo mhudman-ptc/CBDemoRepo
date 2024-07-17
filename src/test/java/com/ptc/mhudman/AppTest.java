@@ -14,12 +14,17 @@ public class AppTest {
      * Rigorous Tests :-)
      */
     @Test
-    public void testThatShouldPass() {
+    public void testHigh() {
         assertTrue(true);
     }
 
     @Test
-    public void testThatShouldFail() {
+    public void testMedium() {
+        assertTrue(true);
+    }
+
+    @Test
+    public void testLow() {
         assertTrue(false);
     }
 }

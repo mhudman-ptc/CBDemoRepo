@@ -34,17 +34,18 @@ curl -v --location --request POST $URL -u "$USER:$PASS" \
 # 
 #   Optionally, we can upload the target file to a Windchill Instance
 #
-WINDCHILL_INSTANCE="PP-2301181437T9"
+WINDCHILL_INSTANCE="2301181437T9"
 SOFTWARE_PART_NUMBER="0000387"
 TARGET_FILEPATH=$(realpath "$(pwd)/target")
 TARGET_FILENAME="SamplePackage.jar"
+APP_KEY="a6c72a44-6f77-48c8-8e24-d2d874d7f346"
 
 if [[ -z ${WINDCHILL_INSTANCE+x} ]]; then
     echo "No WC instance provided, skipping upload to WC"
 else
     curl -v \
         -H "X-XSRF-TOKEN: TWX-XSRF-TOKEN-VALUE" \
-        -H "AppKey: e1bee721-7592-43a6-9ca2-b3f4b1ac8fe1" \
+        -H "AppKey: ${APP_KEY}" \
         -F "upload-repository=TS.DocumentPortal.FileRepository" \
         -F "upload-submit=Upload" \
         -F "file=@${TARGET_FILEPATH}/${TARGERT_FILENAME};type=application/octet-stream" \
@@ -53,7 +54,7 @@ else
     curl -v \
         -X POST \
         -H "X-XSRF-TOKEN: TWX-XSRF-TOKEN-VALUE" \
-        -H "AppKey: e1bee721-7592-43a6-9ca2-b3f4b1ac8fe1" \
+        -H "AppKey: ${APP_KEY}" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
         -d "{\"SoftwarePartNumber\": \"${SOFTWARE_PART_NUMBER}\", \"ContentFileName\": \"${TARGET_FILENAME}\"}" \

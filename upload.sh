@@ -34,11 +34,11 @@ curl -v --location --request POST $URL -u "$USER:$PASS" \
 # 
 #   Optionally, we can upload the target file to a Windchill Instance
 #
-WINDCHILL_INSTANCE="2301181437T9"
+WINDCHILL_INSTANCE="24010820322v"
 SOFTWARE_PART_NUMBER="0000387"
 TARGET_FILEPATH=$(realpath "$(pwd)/target")
 TARGET_FILENAME="SamplePackage.jar"
-APP_KEY="a6c72a44-6f77-48c8-8e24-d2d874d7f346"
+APP_KEY="e1bee721-7592-43a6-9ca2-b3f4b1ac8fe1"
 
 if [[ -z ${WINDCHILL_INSTANCE+x} ]]; then
     echo "No WC instance provided, skipping upload to WC"

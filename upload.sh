@@ -7,8 +7,8 @@ PASS="ptc"
 # required params
 # testCaseTrackerId     - The tracker id of the test cases
 # testRunTrackerId      - The tracker id where the test runs going to be populated
-TEST_CASE_TRACKER_ID="9094"
-TEST_RUN_TRACKER_ID="9116"
+TEST_CASE_TRACKER_ID=$4
+TEST_RUN_TRACKER_ID=$5
 FILE=$6
 
 # optional params

@@ -7,8 +7,8 @@ PASS="ptc"
 # required params
 # testCaseTrackerId     - The tracker id of the test cases
 # testRunTrackerId      - The tracker id where the test runs going to be populated
-TEST_CASE_TRACKER_ID="9094"
-TEST_RUN_TRACKER_ID="9116"
+TEST_CASE_TRACKER_ID=$4
+TEST_RUN_TRACKER_ID=$5
 FILE=$6
 
 # optional params
@@ -34,29 +34,29 @@ curl -v --location --request POST $URL -u "$USER:$PASS" \
 # 
 #   Optionally, we can upload the target file to a Windchill Instance
 #
-WINDCHILL_INSTANCE="24010820322v"
-SOFTWARE_PART_NUMBER="0000387"
-TARGET_FILEPATH=$(realpath "$(pwd)/target")
-TARGET_FILENAME="SamplePackage.jar"
-APP_KEY="e1bee721-7592-43a6-9ca2-b3f4b1ac8fe1"
+# WINDCHILL_INSTANCE="24010820322v"
+# SOFTWARE_PART_NUMBER="0000387"
+# TARGET_FILEPATH=$(realpath "$(pwd)/target")
+# TARGET_FILENAME="SamplePackage.jar"
+# APP_KEY="e1bee721-7592-43a6-9ca2-b3f4b1ac8fe1"
 
-if [[ -z ${WINDCHILL_INSTANCE+x} ]]; then
-    echo "No WC instance provided, skipping upload to WC"
-else
-    curl -v \
-        -H "X-XSRF-TOKEN: TWX-XSRF-TOKEN-VALUE" \
-        -H "AppKey: ${APP_KEY}" \
-        -F "upload-repository=TS.DocumentPortal.FileRepository" \
-        -F "upload-submit=Upload" \
-        -F "file=@${TARGET_FILEPATH}/${TARGERT_FILENAME};type=application/octet-stream" \
-        "https://pp-${WINDCHILL_INSTANCE}.portal.ptc.io:9443/Thingworx/FileRepositoryUploader"
+# if [[ -z ${WINDCHILL_INSTANCE+x} ]]; then
+#     echo "No WC instance provided, skipping upload to WC"
+# else
+#     curl -v \
+#         -H "X-XSRF-TOKEN: TWX-XSRF-TOKEN-VALUE" \
+#         -H "AppKey: ${APP_KEY}" \
+#         -F "upload-repository=TS.DocumentPortal.FileRepository" \
+#         -F "upload-submit=Upload" \
+#         -F "file=@${TARGET_FILEPATH}/${TARGERT_FILENAME};type=application/octet-stream" \
+#         "https://pp-${WINDCHILL_INSTANCE}.portal.ptc.io:9443/Thingworx/FileRepositoryUploader"
 
-    curl -v \
-        -X POST \
-        -H "X-XSRF-TOKEN: TWX-XSRF-TOKEN-VALUE" \
-        -H "AppKey: ${APP_KEY}" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"SoftwarePartNumber\": \"${SOFTWARE_PART_NUMBER}\", \"ContentFileName\": \"${TARGET_FILENAME}\"}" \
-        "https://pp-${WINDCHILL_INSTANCE}.portal.ptc.io:9443/Thingworx/Things/TS.DocumentPortalHelper/Services/ProcessJenkinsContent"
-fi
+#     curl -v \
+#         -X POST \
+#         -H "X-XSRF-TOKEN: TWX-XSRF-TOKEN-VALUE" \
+#         -H "AppKey: ${APP_KEY}" \
+#         -H "Accept: application/json" \
+#         -H "Content-Type: application/json" \
+#         -d "{\"SoftwarePartNumber\": \"${SOFTWARE_PART_NUMBER}\", \"ContentFileName\": \"${TARGET_FILENAME}\"}" \
+#         "https://pp-${WINDCHILL_INSTANCE}.portal.ptc.io:9443/Thingworx/Things/TS.DocumentPortalHelper/Services/ProcessJenkinsContent"
+# fi

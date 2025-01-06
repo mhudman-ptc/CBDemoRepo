@@ -28,5 +28,5 @@ hs_err_pid*
 .idea/
 
 *.iml
-target/classes
-target/test-classes
+
+target/

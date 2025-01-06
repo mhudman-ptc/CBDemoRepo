@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-URL="https://pp-2402191821hh.portal.ptc.io:9443/cb/rest/xunitresults"
-USER="pat"
-PASS="ptc"
+URL=$1
+USER=$2
+PASS=$3
 
 # required params
 # testCaseTrackerId     - The tracker id of the test cases

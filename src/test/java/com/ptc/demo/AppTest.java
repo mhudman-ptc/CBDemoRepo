@@ -1,4 +1,4 @@
-package com.ptc.mhudman;
+package com.ptc.demo;
 
 import static org.junit.Assert.assertTrue;
 

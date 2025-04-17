@@ -20,7 +20,7 @@ FILE=$6
 TEST_CONFIG_ID=""
 PARENT_TEST_CASE_ID=""
 RELEASE_ID=""
-BUILD_ID=""
+BUILD_ID="$(date +%s)"
 PACKAGE_PREFIX=""
 
 CFG="{\"testConfigurationId\":\"$TEST_CONFIG_ID\",\"testCaseTrackerId\":\"$TEST_CASE_TRACKER_ID\",\"testCaseId\":\"$PARENT_TEST_CASE_ID\",\"releaseId\":\"$RELEASE_ID\",\"testRunTrackerId\":\"$TEST_RUN_TRACKER_ID\",\"buildIdentifier\":\"$BUILD_ID\",\"defaultPackagePrefix\":\"$PACKAGE_PREFIX\"}"

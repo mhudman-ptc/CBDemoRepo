@@ -17,3 +17,4 @@ git status
 git commit -m "#${TASK_ID} - update for demonstration at ${NOW}"
 git push --set-upstream origin ${BRANCHNAME}
 git checkout main
+git pull

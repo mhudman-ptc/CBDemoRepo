@@ -7,6 +7,7 @@ export REPOHOST="$(git remote -v | grep fetch | awk '{print $2}')"
 echo ${TASK_ID}
 echo ${NOW}
 echo ${EDITFILE}
+git pull
 git checkout -b ${BRANCHNAME}
 git checkout ${BRANCHNAME}
 git pull

@@ -7,9 +7,9 @@ export REPOHOST="$(git remote -v | grep fetch | awk '{print $2}')"
 echo ${TASK_ID}
 echo ${NOW}
 echo ${EDITFILE}
-git pull
-git checkout -b ${BRANCHNAME}
-git checkout ${BRANCHNAME}
+# git pull
+# git checkout -b ${BRANCHNAME}
+# git checkout ${BRANCHNAME}
 git pull
 echo -e "\n${NOW} - Added line to ${REPOHOST}/readme.md for ${TASK_ID}" >> ${EDITFILE}
 cat ${EDITFILE}
